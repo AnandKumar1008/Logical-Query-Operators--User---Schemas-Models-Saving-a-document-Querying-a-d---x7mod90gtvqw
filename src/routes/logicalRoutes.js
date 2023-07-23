@@ -14,7 +14,7 @@ router.get("/or", async (req, res) => {
     const query = {
       $or: [{ age: 20 }, { username: "admin" }],
     };
-    const user=await User.find(query);
+    const user = await User.find(query);
     res.send(user);
   } catch (error) {
     res.status(404).send(error);
@@ -25,10 +25,10 @@ router.get("/or", async (req, res) => {
 router.get("/and", async (req, res) => {
   try {
     //write your code here for and operator
-    const query={
-      $and:[{age:20},{username:"admin"}]
-    }
-    const items=await User.find(query);
+    const query = {
+      $and: [{ age: 20 }, { username: "admin" }],
+    };
+    const items = await User.find(query);
     res.send(items);
   } catch (error) {
     res.status(404).send(error);
@@ -39,9 +39,9 @@ router.get("/and", async (req, res) => {
 router.get("/not", async (req, res) => {
   try {
     //write your code here for not operator
-    const users=await User.find({
-      $not:[{age:20},{username:"admin"}];
-    })
+    const users = await User.find({
+      $not: [{ age: 20 }, { username: "admin" }],
+    });
     res.send(users);
   } catch (error) {
     res.status(404).send(error);
@@ -52,10 +52,7 @@ router.get("/not", async (req, res) => {
 router.get("/nor", async (req, res) => {
   try {
     const users = await User.find({
-      $nor: [
-        { age: 20 },
-        { username: "admin" }
-      ]
+      $nor: [{ age: 20 }, { username: "admin" }],
     });
     res.send(users);
     //write your code here for nor operator
