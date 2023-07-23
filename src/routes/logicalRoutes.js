@@ -42,6 +42,7 @@ router.get("/not", async (req, res) => {
     const users=await User.find({
       $not:[{age:20},{username:"admin"}];
     })
+    res.send(users);
   } catch (error) {
     res.status(404).send(error);
   }
